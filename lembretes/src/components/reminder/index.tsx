@@ -14,7 +14,7 @@ function ReminderItem({ reminder, onClick }: ReminderItemProps) {
         text-xs py-1 border-b-2 border-blue-100 cursor-default
         bg-blue-500 bg-opacity-25">
             <td className="pl-5 pr-3 whitespace-no-wrap">
-                <div className="text-gray-400">{reminder.data}</div>
+                <div className="text-gray-400">{reminder.data.toLocaleDateString()}</div>
             </td>
 
             <td className="px-2 py-2 whitespace-no-wrap">

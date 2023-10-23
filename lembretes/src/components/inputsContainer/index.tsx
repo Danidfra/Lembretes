@@ -1,27 +1,28 @@
 import { Reminder } from "@/pages";
 import { useState } from "react";
 import Button from "../Button";
-import { getDefaultHighWaterMark } from "stream";
+import { generateUniqueId } from "@/pages/index";
 
 interface InputsProps {
     addReminders: (reminder: Reminder) => void;
-
 }
 
 export function Inputs(props: InputsProps) {
-
-
-
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [data, setData] = useState('');
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const form = e.target as HTMLFormElement
-        props.addReminders({ title, text, data });
+        const form = e.target as HTMLFormElement;
+        const id = generateUniqueId();
+        const date = new Date(data);
+        const newReminder: Reminder = { id, title, text, data: date };
+
+        props.addReminders(newReminder);
         form.reset();
     };
+
 
     const currentDate = new Date();
     const month = currentDate.getMonth() + 1;
