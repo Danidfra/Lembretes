@@ -19,13 +19,14 @@ export default function Home() {
     setReminders((reminders) => [...reminders, reminder]);
   }
 
-  function handleOnRemove(parametro: Reminder) {
-    // setReminders((reminders) => [...reminders, reminder]);
-    let newList = reminders.filter(x => x.title != parametro.title)
-    setReminders(newList)
+  function handleOnRemove(reminder: Reminder) {
+    // Filtra os lembretes para remover o lembrete específico com base no título
+    const newList = reminders.filter((r) => r.title !== reminder.title);
+    setReminders(newList);
   }
 
   return (
+
 
     <div className="container mx-auto py-10 flex justify-evenly	 items-center h-screen" id="test">
 
@@ -45,7 +46,11 @@ export default function Home() {
           <table className="w-full">
             <tbody className="">
               {reminders.map((reminder, index) => (
-                <ReminderItem onClick={() => handleOnRemove(reminder)} key={index} reminder={reminder} />
+                <ReminderItem
+                  onClick={() => handleOnRemove(reminder)} // Passe o lembrete diretamente para a função
+                  key={index}
+                  reminder={reminder}
+                />
               ))}
             </tbody>
           </table>
