@@ -13,7 +13,7 @@ function ReminderItem({ reminder, onClick }: ReminderItemProps) {
         <tr className="relative transform scale-100
         text-xs py-1 border-b-2 border-blue-100 cursor-default
         bg-blue-500 bg-opacity-25">
-            <td className="pl-5 pr-3 whitespace-no-wrap">
+            <td className="pl-5 whitespace-no-wrap">
                 <div className="text-gray-400">{reminder.data.toLocaleDateString()}</div>
             </td>
 

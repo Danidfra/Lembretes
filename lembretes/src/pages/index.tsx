@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Inputs } from '@/components/inputsContainer'
-import Button from '@/components/Button/index'
 import { ReminderItem } from '@/components/reminder'
 
 export interface Reminder {
@@ -63,18 +62,19 @@ export default function Home() {
   });
 
   return (
-    <div className="container mx-auto py-10 flex justify-evenly items-center h-screen" id="test">
-      <div className="border border-white border-opacity-25 rounded-2xl bg-white text-black shadow-xl backdrop-blur-2xl w-3/6 h-3/5">
+    <div className="container w-full mx-auto flex justify-evenly items-center h-screen max-md:flex-col min-h-min my-4	" id="test">
+
+      <div className="border border-white border-opacity-25 rounded-2xl bg-white text-black shadow-xl backdrop-blur-2xl w-3/6 h-3/6 max-md:w-80">
         <Inputs addReminders={addReminder} />
       </div>
-      <div className="w-4/12 pl-4  h-full flex flex-col">
-        <div className="bg-white text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300">
-          <span className="text-black">Lista de Lembretes</span>
+      <div className="w-4/12  h-5/6 max-md:w-80 max-md:h-100 max-md:my-4">
+        <div className="bg-white text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300 ">
+          <span className="text-black	">Lista de Lembretes</span>
         </div>
-        <div className="w-full h-full overflow-auto shadow bg-white" id="journal-scroll">
+        <div className="w-full h-full overflow-auto shadow bg-white max-md:h-5/6 max-md:max-h-96	" id="journal-scroll">
           {dateKeys.map((dateKey) => (
             <div key={dateKey}>
-              <h2 className="text-gray-600">{dateKey}</h2> {/* Aplica a classe aqui */}
+              <h2 className="text-gray-600 text-sm">{dateKey}</h2>
               <table className="w-full">
                 <tbody>
                   {reversedGroupedReminders[dateKey].map((reminder) => (
