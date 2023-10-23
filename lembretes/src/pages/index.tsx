@@ -21,7 +21,7 @@ export default function Home() {
   const [reminders, setReminders] = useState<Reminder[]>([]);
 
   function addReminder(reminder: Reminder) {
-    const newReminder: Reminder = { ...reminder, id: generateUniqueId() }; // Gere um ID aleatório
+    const newReminder: Reminder = { ...reminder, id: generateUniqueId() };
     setReminders((reminders) => [...reminders, newReminder]);
   }
 
